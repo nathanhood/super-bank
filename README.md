@@ -1,6 +1,8 @@
-# client-template
+# Super Bank
 
-Serves as a template for client JavaScript applications.
+Super Bank does the following:
+* Conducts withdrawals and deposits
+* Tracks balance in ledger
 
 It uses:
 * Jade
