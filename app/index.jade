@@ -2,10 +2,35 @@ doctype html
 html(lang='en')
   head
     meta(charset='utf-8')
-    title Client Template
-    link(rel='stylesheet', href='./css/app.css')
+    title Super Bank
+    link(rel='stylesheet', href='css/app.css')
   body
-    h1 Client Template
+    h1 Super Bank
 
-    script(src='./js/vendor/jquery-2.1.0.js')
-    script(src='./js/source/main.js')
+    h2#balance Balance
+      div#display
+
+    div.transaction
+      h3#amount Amount
+      input#input(type='text')
+      <br>
+      button#deposit Deposit
+      button#withdrawal Withdrawal
+    div.table
+      table#ledger
+        thead
+          tr
+            th.fee Fee
+            th.dep Deposit
+            th.with Withdrawal
+            th.bal Balance
+        tbody
+          tr
+            td.fee
+            td.dep
+            td.with
+            td.bal $1000
+
+
+    script(src='js/vendor/jquery-2.1.0.js')
+    script(src='js/source/main.js')
