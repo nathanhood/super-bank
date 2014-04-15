@@ -3,7 +3,11 @@
 
   $(document).ready(initialize);
   var balance = 1000;
-  $('#display').text('$' + balance);
+  if(balance < 0){
+    $('#display').text('$(' + balance * -1 + '.00)');
+  } else {
+    $('#display').text('$' + balance + '.00');
+  }
 
   function initialize(){
     $('#deposit').click(deposit);
@@ -15,7 +19,11 @@
     balance += amount;
 
     buildRow('deposit', amount);
-    $('#display').text('$' + balance);
+    if(balance < 0){
+      $('#display').text('$(' + balance * -1 + '.00)');
+    } else {
+      $('#display').text('$' + balance + '.00');
+    }
   }
 
   function withdrawal(){
@@ -25,25 +33,26 @@
     if(balance < 0){
       fee = 50;
       balance -= fee;
-      balance = negNum(balance);
     }
     buildRow('withdraw', amount, fee);
-    $('#display').text('$' + balance);
+    if(balance < 0){
+      $('#display').text('$(' + balance * -1 + '.00)');
+    } else {
+      $('#display').text('$' + balance + '.00');
+    }
   }
 
-  function negNum(){
-    var number = balance;
-    if(number < 0){
-      number = '(' + Math.abs(number) + ')';
-    }
-    return number;
-  }
 
   function buildRow(type, value, fee){
     var $td1 = $('<td>');
     var $td2 = $('<td>');
     var $td3 = $('<td>');
-    var $td4 = $('<td>').text('$' + balance);
+    var $td4 = $('<td>');
+    if(balance < 0){
+      $td4 = $('<td>').text('$(' + balance * -1 + '.00)');
+    } else {
+      $td4 = $('<td>').text('$' + balance + '.00');
+    }
     var $tr = $('<tr>');
 
     if(type === 'deposit'){
